@@ -3,10 +3,12 @@
 namespace App\Actions\Fortify;
 
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
+use Spatie\Permission\Models\Role;
 
 class CreateNewUser implements CreatesNewUsers
 {
@@ -15,14 +17,14 @@ class CreateNewUser implements CreatesNewUsers
     /**
      * Validate and create a newly registered user.
      *
-     * @param  array  $input
+     * @param array $input
      * @return \App\Models\User
      */
     public function create(array $input)
     {
         Validator::make($input, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => [
+            'name'     => ['required', 'string', 'max:255'],
+            'email'    => [
                 'required',
                 'string',
                 'email',
@@ -32,10 +34,18 @@ class CreateNewUser implements CreatesNewUsers
             'password' => $this->passwordRules(),
         ])->validate();
 
-        return User::create([
-            'name' => $input['name'],
-            'email' => $input['email'],
-            'password' => Hash::make($input['password']),
-        ]);
+        $user = DB::transaction(function () use ($input) {
+            $user = User::create([
+                'name'     => $input['name'],
+                'email'    => $input['email'],
+                'password' => Hash::make($input['password']),
+            ]);
+
+            $role_user = Role::findByName('user');
+            $user->assignRole($role_user);
+            return $user;
+        });
+
+        return $user;
     }
 }

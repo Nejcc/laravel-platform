@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\User;
 use Illuminate\Database\Seeder;
+use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
 class UserTableSeeder extends Seeder
@@ -18,6 +19,10 @@ class UserTableSeeder extends Seeder
         $god = Role::create(['name' => 'super-admin']);
         $role_user = Role::create(['name' => 'user']);
 
+        $permission_users_view = Permission::create(['name' => 'view users']);
+
+        $god->givePermissionTo($permission_users_view);
+
 //        Creating Admin
         $admin = User::create([
             'name'     => config('app.admin_default_data.name'),
@@ -26,6 +31,7 @@ class UserTableSeeder extends Seeder
         ]);
 
         $admin->assignRole($god);
+
 
 //        Creating user
         $user = User::create([
