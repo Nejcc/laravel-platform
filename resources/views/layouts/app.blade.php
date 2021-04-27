@@ -44,6 +44,7 @@
 
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ml-auto">
+                    @hasanyrole('super-admin|admin')
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle {{ (request()->is(['admin/*'])) ? 'active' : '' }}"
                            href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
@@ -59,6 +60,7 @@
                             {{--                            <a class="dropdown-item" href="#">Something else here</a>--}}
                         </div>
                     </li>
+                    @endhasanyrole
                     <!-- Authentication Links -->
                     @guest
                         @if (Route::has('login'))

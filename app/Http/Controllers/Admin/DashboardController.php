@@ -24,6 +24,7 @@ class DashboardController extends Controller
      */
     public function index()
     {
+//        abort_if(!me()->can('view users'), 403, 'You dont have permissions to view this resources');
         return view('admin.dashboard.index');
     }
 }
