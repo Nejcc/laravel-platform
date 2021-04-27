@@ -4,7 +4,7 @@
             <h2>Users</h2>
         </div>
         <div class="col-6 text-right">
-            <a href="" class="btn btn-primary">Create new user</a>
+            <a href="" class="btn btn-primary @cannot('create user') disabled @endcannot">Create new user</a>
         </div>
     </div>
     <div class="row">

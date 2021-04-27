@@ -53,7 +53,7 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item {{ (request()->is(['admin/users'])) ? 'active' : '' }}"
-                               href="{{ route('admin.user-roles.index') }}">Users</a>
+                               href="{{ route('admin.users.index') }}">Users</a>
                             <a class="dropdown-item {{ (request()->is(['admin/user-roles'])) ? 'active' : '' }}"
                                href="{{ route('admin.user-roles.index') }}">Roles</a>
                             <a class="dropdown-item {{ (request()->is(['admin/user-permissions'])) ? 'active' : '' }}"

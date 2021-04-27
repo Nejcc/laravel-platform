@@ -20,7 +20,8 @@ class UserTableSeeder extends Seeder
                 'permissions',
             ],
             'create' => [
-//                'permission',
+                'permission',
+                'user',
                 'role',
             ],
             'update' => [
