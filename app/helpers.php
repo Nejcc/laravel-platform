@@ -42,6 +42,19 @@ if (!function_exists('my_role')) {
     }
 }
 
+if (!function_exists('set_active')) {
+
+    /**
+     * @param $path
+     * @param string $active
+     * @return string
+     */
+    function set_active($path, $active = 'active')
+    {
+        return call_user_func_array('Request::is', (array)$path) ? $active : '';
+    }
+}
+
 if (!function_exists('ndd')) {
     /**
      * @param mixed ...$vars
@@ -65,7 +78,7 @@ if (!function_exists('collection_sum')) {
      */
     function collection_sum($payload, $field, $formatting = false, $separator = 2)
     {
-        if($formatting)
+        if ($formatting)
             return number_format($payload->sum($field), $separator);
 
         return $payload->sum($field);

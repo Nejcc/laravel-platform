@@ -36,7 +36,25 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto">
-
+                    <li class="nav-item {{ (request()->is(['dashboard', 'home'])) ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('admin.dashboard') }}">Home <span
+                                class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle {{ (request()->is(['admin/users', 'admin/sitemap'])) ? 'active' : '' }}"
+                           href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                           aria-expanded="false">
+                            Administration
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item {{ (request()->is(['admin/users'])) ? 'active' : '' }}"
+                               href="{{ route('admin.users.index') }}">Users</a>
+                            <a class="dropdown-item {{ (request()->is(['admin/sitemap'])) ? 'active' : '' }}"
+                               href="{{ route('admin.sitemap.index') }}">Sitemap</a>
+                            {{--                            <div class="dropdown-divider"></div>--}}
+                            {{--                            <a class="dropdown-item" href="#">Something else here</a>--}}
+                        </div>
+                    </li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
