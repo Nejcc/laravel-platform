@@ -3,5 +3,7 @@
 @section('title', 'users')
 
 @section('content')
-    <livewire:admin.users/>
+    @can('view users')
+        <livewire:admin.users/>
+    @endcan
 @endsection

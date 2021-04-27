@@ -9,6 +9,18 @@ use Spatie\Permission\Models\Role;
 
 class UserTableSeeder extends Seeder
 {
+
+    private $roles = ['admin', 'writer', 'power user', 'user'];
+    private $permissionsOnGroup = [
+        'admin' => [
+            'view users',
+            'view sitemap',
+        ],
+        'user'  => [
+
+        ]
+    ];
+
     /**
      * Run the database seeds.
      *
@@ -17,15 +29,18 @@ class UserTableSeeder extends Seeder
     public function run()
     {
         $god = Role::create(['name' => 'super-admin']);
-        $role_user = Role::create(['name' => 'user']);
 
-        $permission_users_view = Permission::create(['name' => 'view users']);
-        $permission_sitemap_view = Permission::create(['name' => 'view sitemap']);
+        foreach ($this->roles as $role) {
+            $newRole = Role::create(['name' => $role]);
+            if (!empty($this->permissionsOnGroup[$role])) {
+                foreach ($this->permissionsOnGroup[$role] as $permission) {
+                    $newPermission = Permission::updateOrCreate(['name' => $permission]);
+                    $newRole->givePermissionTo($newPermission);
+                }
+            }
+        }
 
-        $god->givePermissionTo($permission_users_view);
-        $god->givePermissionTo($permission_sitemap_view);
-
-//        Creating Admin
+//        Creating Super Admin
         $admin = User::create([
             'name'     => config('app.admin_default_data.name'),
             'email'    => config('app.admin_default_data.email'),
@@ -34,13 +49,14 @@ class UserTableSeeder extends Seeder
 
         $admin->assignRole($god);
 
-
 //        Creating user
         $user = User::create([
             'name'     => 'user',
             'email'    => 'user@local.local',
             'password' => bcrypt('secret'),
         ]);
-        $user->assignRole($role_user);
+        $user->assignRole('user');
+
+
     }
 }
