@@ -40,6 +40,10 @@
                         <a class="nav-link" href="{{ route('admin.dashboard') }}">Home <span
                                 class="sr-only">(current)</span></a>
                     </li>
+                </ul>
+
+                <!-- Right Side Of Navbar -->
+                <ul class="navbar-nav ml-auto">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle {{ (request()->is(['admin/*'])) ? 'active' : '' }}"
                            href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
@@ -55,10 +59,6 @@
                             {{--                            <a class="dropdown-item" href="#">Something else here</a>--}}
                         </div>
                     </li>
-                </ul>
-
-                <!-- Right Side Of Navbar -->
-                <ul class="navbar-nav ml-auto">
                     <!-- Authentication Links -->
                     @guest
                         @if (Route::has('login'))
@@ -99,6 +99,28 @@
 
     <main class="py-4">
         <div class="container">
+            @if($errors->any())
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <h4 class="alert-heading">Error!</h4>
+                    @foreach ($errors->all() as $error)
+                        <p>{{ $error }}</p>
+                    @endforeach
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            @endif
+
+            @if(session()->has('message'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <h4 class="alert-heading">Success!</h4>
+                    <p>{{ session()->get('message') }}</p>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            @endif
+
             @yield('content')
         </div>
     </main>
