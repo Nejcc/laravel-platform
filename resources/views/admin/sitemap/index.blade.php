@@ -3,5 +3,7 @@
 @section('title', 'users')
 
 @section('content')
-    <livewire:admin.site-map/>
+    @can('view sitemap')
+        <livewire:admin.site-map/>
+    @endcan
 @endsection

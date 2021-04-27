@@ -24,9 +24,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-//        dd(me()->can('view users'));
         abort_if(!me()->can('view users'), 403, 'You dont have permissions to view this resources');
-
         return view('admin.users.index');
     }
 }
