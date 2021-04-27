@@ -6,10 +6,11 @@
 
 ## Packages 
 
-https://github.com/laravel/ui (slave)
-https://laravel.com/docs/8.x/fortify (master)
-https://spatie.be/docs/laravel-permission/v4/basic-usage/basic-usage 
-https://docs.laravel-excel.com/3.1/getting-started/installation.html
+- https://github.com/laravel/ui (slave) (only bootstrap part and vue)
+- https://laravel.com/docs/8.x/fortify (master)
+- https://spatie.be/docs/laravel-permission/v4/basic-usage/basic-usage 
+- https://docs.laravel-excel.com/3.1/getting-started/installation.html
+- https://laravel-livewire.com/docs/2.x/quickstart
 
 
 ## Contributing
