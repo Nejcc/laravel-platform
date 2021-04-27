@@ -20,8 +20,10 @@ class UserTableSeeder extends Seeder
         $role_user = Role::create(['name' => 'user']);
 
         $permission_users_view = Permission::create(['name' => 'view users']);
+        $permission_sitemap_view = Permission::create(['name' => 'view sitemap']);
 
         $god->givePermissionTo($permission_users_view);
+        $god->givePermissionTo($permission_sitemap_view);
 
 //        Creating Admin
         $admin = User::create([
