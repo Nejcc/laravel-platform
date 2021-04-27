@@ -16,9 +16,12 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
     @livewireStyles
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+    @stack('css')
 </head>
 <body>
 <div id="app">
@@ -132,5 +135,7 @@
     </main>
 </div>
 @livewireScripts
+@stack('js')
+@stack('modal')
 </body>
 </html>

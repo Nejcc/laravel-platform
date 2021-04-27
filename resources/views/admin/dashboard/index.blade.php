@@ -38,13 +38,21 @@
         <div class="col-4">
             <div class="card">
                 <div class="card-body">
-                    <h5>Permissions</h5>
-                    <h2 class="text-right">{{ \App\Models\Permission::count() }}</h2>
+                    <div class="row">
+                        <div class="col-6">
+                            <h5>Roles</h5>
+                            <h2 class="text-right">{{ \App\Models\Role::count() }}</h2>
+                        </div>
+                        <div class="col-6 border-left">
+                            <h5>Permissions</h5>
+                            <h2 class="text-right">{{ \App\Models\Permission::count() }}</h2>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
+    
     <div class="row">
         <div class="col-md-12">
             <div class="card">
@@ -66,3 +74,7 @@
     </div>
 
 @endsection
+
+@push('js')
+
+@endpush
