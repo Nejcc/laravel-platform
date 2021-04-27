@@ -4,8 +4,8 @@
             <h2>Permissions</h2>
         </div>
         <div class="col-6 justify-content-end form-inline">
-            <input type="text" class="form-control mr-1" placeholder="Permission name" wire:model.debounce.200ms="name">
-            <button wire:click="createNewPermission" class="btn btn-primary ">Create new permission</button>
+            <input type="text" class="form-control mr-1 "  @cannot('create permission') disabled @endcannot placeholder="Permission name" wire:model.debounce.200ms="name">
+            <button wire:click="createNewPermission" class="btn btn-primary @cannot('create permission') disabled @endcannot">Create new permission</button>
             @error('name') <span class="error">{{ $message }}</span> @enderror
         </div>
     </div>

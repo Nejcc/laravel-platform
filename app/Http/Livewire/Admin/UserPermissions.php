@@ -12,13 +12,13 @@ class UserPermissions extends Component
     public $name = '';
 
     protected $rules = [
-        'name' => 'min:3|string|unique:roles',
+        'name' => 'min:3|string|unique:permissions',
     ];
 
     public function createNewPermission()
     {
         $this->validate();
-        
+
         if (!empty($this->name)) {
             Permission::create([
                 'name' => $this->name
@@ -33,7 +33,7 @@ class UserPermissions extends Component
     public function updated($propertyName)
     {
         $this->validateOnly($propertyName, [
-            'name' => 'min:3|string|unique:permission',
+            'name' => 'min:3|string|unique:permissions',
         ]);
     }
 

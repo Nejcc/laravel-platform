@@ -4,8 +4,8 @@
             <h2>Role</h2>
         </div>
         <div class="col-6 justify-content-end form-inline">
-            <input type="text" class="form-control mr-1" placeholder="Role name" wire:model.debounce.200ms="name">
-            <button wire:click="createNewRole" class="btn btn-primary ">Create new Role</button>
+            <input type="text" class="form-control mr-1 " @cannot('create role') disabled @endcannot placeholder="Role name" wire:model.debounce.200ms="name">
+            <button wire:click="createNewRole" class="btn btn-primary @cannot('create role') disabled @endcannot">Create new Role</button>
             @error('name') <span class="error">{{ $message }}</span> @enderror
         </div>
     </div>

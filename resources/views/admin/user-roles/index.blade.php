@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
-@section('title', 'users')
+@section('title', 'users roles')
 
 @section('content')
-    @can('view users')
+    @can('view roles')
         <livewire:admin.user-roles/>
     @endcan
 @endsection

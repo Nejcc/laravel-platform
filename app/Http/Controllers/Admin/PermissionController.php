@@ -9,11 +9,12 @@ class PermissionController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['auth','can:view role']);
+        $this->middleware(['auth']);
     }
 
     public function index()
     {
+        abort_if(!me()->can('view permissions'), 403, 'You dont have permissions to view this resources');
         return view('admin.user-permissions.index');
     }
 }
