@@ -18,4 +18,6 @@ Route::get('/dashboard', [App\Http\Controllers\Admin\DashboardController::class,
 
 Route::resource('/users', App\Http\Controllers\Admin\UsersController::class)->only(['index', 'show']);
 Route::resource('/sitemap', App\Http\Controllers\Admin\SiteMapListController::class)->only(['index', 'show']);
+Route::resource('/user-roles', App\Http\Controllers\Admin\RoleController::class)->only(['index']);
+Route::resource('/user-permissions', App\Http\Controllers\Admin\PermissionController::class)->only(['index']);
 

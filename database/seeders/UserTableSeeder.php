@@ -13,11 +13,27 @@ class UserTableSeeder extends Seeder
     private $roles = ['admin', 'writer', 'power user', 'user'];
     private $permissionsOnGroup = [
         'admin' => [
-            'view users',
-            'view sitemap',
+            'view'   => [
+                'users',
+                'sitemap',
+                'roles',
+                'permissions',
+            ],
+            'create' => [
+                'permission',
+                'user',
+                'role',
+            ],
+            'update' => [
+                'permission',
+                'role',
+            ],
+            'delete' => [
+                'permission',
+                'role',
+            ],
         ],
         'user'  => [
-
         ]
     ];
 
@@ -28,15 +44,23 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
+//        Permission::truncate();
         $god = Role::create(['name' => 'super-admin']);
 
         foreach ($this->roles as $role) {
             $newRole = Role::create(['name' => $role]);
             if (!empty($this->permissionsOnGroup[$role])) {
-                foreach ($this->permissionsOnGroup[$role] as $permission) {
-                    $newPermission = Permission::updateOrCreate(['name' => $permission]);
-                    $newRole->givePermissionTo($newPermission);
+                foreach ($this->permissionsOnGroup[$role] as $key => $permission) {
+                    if (!empty($permission[0])){
+                        foreach ($permission as $p) {
+                            $newPermission = Permission::updateOrCreate(['name' => "{$key} {$p}"]);
+                            $newRole->givePermissionTo($newPermission);
+                        }
+                    }
                 }
+//                    var_dump($key, $permission);
+//                    dd(1);
+//                    $newPermission = Permission::updateOrCreate(['name' => $permission]);
             }
         }
 
@@ -47,7 +71,8 @@ class UserTableSeeder extends Seeder
             'password' => bcrypt(config('app.admin_default_data.password')),
         ]);
 
-        $admin->assignRole($god);
+        $admin->assignRole('admin');
+
 
 //        Creating user
         $user = User::create([
