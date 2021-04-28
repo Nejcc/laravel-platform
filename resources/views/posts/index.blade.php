@@ -11,10 +11,10 @@
     </div>
     <div class="row">
         @forelse($posts as $post)
-           <div class="col-3">
+           <div class="col-4">
                <div class="card my-3">
                    <img class="card-img-top" src="https://cdn.pixabay.com/photo/2015/03/30/14/07/coding-699318_960_720.jpg" alt="Card image cap">
-                   <div class="card-body" style="height: 190px">
+                   <div class="card-body" style="height: 110px">
                        <h5 class="card-title"><a href="{{ route('posts.show', $post->slug) }}">{{ shorten(ucfirst($post->name), 50) }}</a></h5>
                        <p class="card-text">{{ shorten($post->description, 80) }}</p>
                    </div>
