@@ -43,6 +43,9 @@
                         <a class="nav-link" href="{{ route('admin.dashboard') }}">Home <span
                                 class="sr-only">(current)</span></a>
                     </li>
+                    <li class="nav-item {{ (request()->is(['posts', 'home'])) ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('posts.index') }}">Posts</a>
+                    </li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->

@@ -15,9 +15,14 @@ class CreateCommentsTable extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('post_id');
             $table->unsignedBigInteger('user_id');
             $table->string('comment', 255);
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->default(DB::raw('NULL ON UPDATE CURRENT_TIMESTAMP'))->nullable();
+
+            $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');
+//            $table->timestamps();
         });
     }
 
