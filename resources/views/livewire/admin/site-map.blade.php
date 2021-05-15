@@ -55,7 +55,7 @@
                         <tbody>
                         @foreach($routes as $route)
                             <tr>
-                                <td><a href="{{ url($route->uri) }}" target="_blank">{{ $route->uri ?? '' }}</a></td>
+                                <td><a href="{{ url($route->uri) }}" rel="noopener" target="_blank">{{ $route->uri ?? '' }}</a></td>
                                 <td>{{ $route->name ?? '' }}</td>
                                 <td>{{ $route->prefix ?? '' }}</td>
                                 <td>{{ $route->action_method ?? '' }}</td>
