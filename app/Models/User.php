@@ -46,4 +46,9 @@ class User extends Authenticatable
     {
         return empty($query) ? static::query() : static::query()->whereLike('name', $query)->whereLike('email', $query);
     }
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
 }
