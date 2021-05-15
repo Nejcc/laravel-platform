@@ -189,7 +189,6 @@ return [
         Barryvdh\Debugbar\ServiceProvider::class,
         Artesaos\SEOTools\Providers\SEOToolsServiceProvider::class,
 
-
         /*
          * Application Service Providers...
          */
