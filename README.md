@@ -4,6 +4,43 @@
 ## Laravel Platform
 
 
+## Install
+
+### For development
+```$xslt
+composer install
+npm install
+npm run dev ?? npm run prod
+php artisan migrate --seed
+```
+
+### For testing
+```
+composer install
+npm install
+npm run watch
+php artisan migrate:fresh --seed
+php artisan serve
+```
+
+## Auth
+
+- Admin
+```
+- U: admin@admin.com
+- P: secret
+```
+
+- User
+```
+- U: user@local.local  
+- P: secret
+```
+
+## Contribution
+ 
+ if you want to contribute please use the DEVELOP branch and when you do PR push on DEVELOP.
+
 ## Packages 
 
 - https://github.com/laravel/ui (slave) (only bootstrap part and vue)
@@ -11,6 +48,7 @@
 - https://spatie.be/docs/laravel-permission/v4/basic-usage/basic-usage 
 - https://docs.laravel-excel.com/3.1/getting-started/installation.html
 - https://laravel-livewire.com/docs/2.x/quickstart
+- https://github.com/artesaos/seotools
 
 
 ## Contributing

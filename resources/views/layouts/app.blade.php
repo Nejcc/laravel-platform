@@ -3,11 +3,13 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    {!! SEOMeta::generate() !!}
+    {!! OpenGraph::generate() !!}
+    {!! Twitter::generate() !!}
+    {!! JsonLd::generate() !!}
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }} - @yield('title')</title>
 
     <!-- Scripts -->
     <script src="{{ mix('js/app.js') }}" defer></script>
@@ -16,9 +18,12 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
     @livewireStyles
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+    @stack('css')
 </head>
 <body>
 <div id="app">
@@ -39,6 +44,9 @@
                     <li class="nav-item {{ (request()->is(['admin/dashboard', 'home'])) ? 'active' : '' }}">
                         <a class="nav-link" href="{{ route('admin.dashboard') }}">Home <span
                                 class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item {{ (request()->is(['posts', 'home'])) ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('posts.index') }}">Posts</a>
                     </li>
                 </ul>
 
@@ -132,5 +140,7 @@
     </main>
 </div>
 @livewireScripts
+@stack('js')
+@yield('modal')
 </body>
 </html>
