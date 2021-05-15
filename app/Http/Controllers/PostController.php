@@ -10,7 +10,6 @@ use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
-
     use SEOToolsTrait;
 
     private $perPage = 25;
@@ -32,11 +31,10 @@ class PostController extends Controller
         return view('posts.index', compact('posts'));
     }
 
-    public function show(Post $post)
+    public function show(Post $post, Request $request)
     {
-//        dd($post);
 //        After 30 second the view count increment on the user
-        cache()->remember('posts.' . $post->slug . '-' . auth()->id(), 30, function () use ($post) {
+        cache()->remember('posts.' . $post->slug . '-' . bcrypt($request->ip()), 30, function () use ($post) {
             $post->views = $post->views + 1;
             return $post->save();
         });
@@ -53,7 +51,7 @@ class PostController extends Controller
 
     public function store(Request $request)
     {
-        $validated = $request->validate([
+        $request->validate([
             'title'   => 'required|min:5|max:150|string',
             'content' => 'required|min:5|max:255|string',
             'publish_at' => 'nullable|date',
