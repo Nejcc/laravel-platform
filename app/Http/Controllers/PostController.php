@@ -24,7 +24,7 @@ class PostController extends Controller
         SEOMeta::setTitle('Posts');
         SEOMeta::setDescription('show all posts of laravel-platform');
         SEOMeta::addMeta('article:published_time', $posts[0]->created_at->toW3CString(), 'property');
-//        SEOMeta::addMeta('article:section', $post->category, 'property');
+//    hidden    SEOMeta::addMeta('article:section', $post->category, 'property');
         SEOMeta::addKeyword(['posts', 'post', 'laravel-platform']);
         $this->seo()->jsonLd()->setType('Posts');
 
@@ -42,7 +42,7 @@ class PostController extends Controller
         SEOMeta::setTitle($post->name);
         SEOMeta::setDescription(shorten($post->description, 100));
         SEOMeta::addMeta('article:published_time', $post->created_at->toW3CString(), 'property');
-//        SEOMeta::addMeta('article:section', $post->category, 'property');
+//  hidden      SEOMeta::addMeta('article:section', $post->category, 'property');
         SEOMeta::addKeyword(explode('-', $post->slug));
         $this->seo()->jsonLd()->setType('post');
 
