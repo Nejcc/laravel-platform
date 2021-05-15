@@ -28,8 +28,8 @@ class CreateSubMenusTable extends Migration
             $table->softDeletes();
 //            foreignId('menu_id') == ->reference(id)->on(another_table)
 //            $table->foreign('menu_id')->on('id')->references('menus')->onDelete('cascade');
-            $table->foreignId('menu_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('group_id')->constrained();
+//            $table->foreignId('menu_id')->constrained()->cascadeOnDelete();
+//            $table->foreignId('group_id')->constrained();
 
 //            $table->foreignId('menu_id')->constrained();
         });
