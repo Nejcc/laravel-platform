@@ -51,12 +51,13 @@
             <div class="card">
                 <div class="card-body p-0">
                     <table class="table table-striped mb-0">
+                        <caption>Show all roles</caption>
                         <thead>
                         <tr>
-                            <th>id</th>
-                            <th>name</th>
-                            <th>guard_name</th>
-                            <th>created</th>
+                            <th scope="col">id</th>
+                            <th scope="col">name</th>
+                            <th scope="col">guard_name</th>
+                            <th scope="col">created</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -65,7 +66,7 @@
                                 <td>{{ $role->id }}</td>
                                 <td>{{ $role->name }}</td>
                                 <td>{{ $role->guard_name }}</td>
-                                <td align="right">{{ $role->created_at }}</td>
+                                <td>{{ $role->created_at }}</td>
                             </tr>
                         @endforeach
                         </tbody>

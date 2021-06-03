@@ -44,13 +44,14 @@
             <div class="card">
                 <div class="card-body p-0">
                     <table class="table table-striped mb-0">
+                        <caption>Show all users</caption>
                         <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Roles</th>
-                            <th>Created at</th>
-                            <th>Actions</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Roles</th>
+                            <th scope="col">Created at</th>
+                            <th scope="col">Actions</th>
                         </tr>
                         </thead>
                         <tbody>
