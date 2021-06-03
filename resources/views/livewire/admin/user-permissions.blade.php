@@ -51,15 +51,16 @@
             <div class="card">
                 <div class="card-body p-0">
                     <table class="table table-striped mb-0">
+                        <caption>Show all permissions</caption>
                         <thead>
                         <tr>
-                            <th>id</th>
-                            <th>name</th>
-                            <th>description</th>
-                            <th>guard_name</th>
-                            <th>permission_category_id</th>
-                            <th>permission_type_id</th>
-                            <th>created</th>
+                            <th scope="col">id</th>
+                            <th scope="col">name</th>
+                            <th scope="col">description</th>
+                            <th scope="col">guard_name</th>
+                            <th scope="col">permission_category_id</th>
+                            <th scope="col">permission_type_id</th>
+                            <th scope="col">created</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -71,7 +72,7 @@
                                 <td>{{ $permission->guard_name }}</td>
                                 <td>{{ $permission->permission_category_id }}</td>
                                 <td>{{ $permission->permission_type_id }}</td>
-                                <td align="right">{{ $permission->created_at }}</td>
+                                <td>{{ $permission->created_at }}</td>
                             </tr>
                         @endforeach
                         </tbody>

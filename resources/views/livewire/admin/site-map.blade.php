@@ -44,6 +44,7 @@
             <div class="card">
                 <div class="card-body p-0">
                     <table class="table table-striped mb-0">
+                        <caption>Show all routes</caption>
                         <thead>
                         <tr>
                             <th scope="col">Route</th>
