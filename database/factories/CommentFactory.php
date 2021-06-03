@@ -22,7 +22,9 @@ class CommentFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'post_id' => rand(1,2),
+            'user_id' => rand(1,2),
+            'comment' => $this->faker->sentence,
         ];
     }
 }

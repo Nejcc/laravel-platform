@@ -14,7 +14,7 @@ class CreateSubMenusTable extends Migration
     public function up()
     {
         Schema::create('sub_menus', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
 //            $table->unsignedSmallInteger('menu_id')->index();
             $table->unsignedSmallInteger('language_id')->default(1)->index();
 //            $table->unsignedSmallInteger('group_id')->default(1);

@@ -14,7 +14,7 @@ class CreateMenuGroupsTable extends Migration
     public function up()
     {
         Schema::create('menu_groups', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->unsignedSmallInteger('language_id');
             $table->string('name', 100);
             $table->timestamps();

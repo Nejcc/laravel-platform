@@ -14,7 +14,7 @@ class CreateSiteMapListsTable extends Migration
     public function up()
     {
         Schema::create('site_map_lists', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->string('host', 150)->nullable();
             $table->string('uri', 150)->nullable();
             $table->string('name', 150)->nullable();
