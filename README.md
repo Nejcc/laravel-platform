@@ -1,6 +1,12 @@
 
 ## Laravel Platform
 
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=Nejcc_laravel-platform&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=Nejcc_laravel-platform)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Nejcc_laravel-platform&metric=alert_status)](https://sonarcloud.io/dashboard?id=Nejcc_laravel-platform)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=Nejcc_laravel-platform&metric=bugs)](https://sonarcloud.io/dashboard?id=Nejcc_laravel-platform)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=Nejcc_laravel-platform&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=Nejcc_laravel-platform)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=Nejcc_laravel-platform&metric=security_rating)](https://sonarcloud.io/dashboard?id=Nejcc_laravel-platform)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=Nejcc_laravel-platform&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=Nejcc_laravel-platform)
 
 ## Install
 
