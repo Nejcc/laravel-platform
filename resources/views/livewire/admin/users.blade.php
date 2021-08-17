@@ -44,7 +44,7 @@
             <div class="card">
                 <div class="card-body p-0">
                     <table class="table table-striped mb-0">
-                        <caption>Show all users</caption>
+{{--                        <caption>Show all users</caption>--}}
                         <thead>
                         <tr>
                             <th scope="col">Name</th>
@@ -61,7 +61,7 @@
                                 <td>{{ $user->email }}</td>
                                 <td>{{ $user->getRoleNames()[0] }}</td>
                                 <td>{{ $user->created_at->format($date_format) }}</td>
-                                <td align="right">
+                                <td class="text-right">
                                     <a href="" class="btn btn-sm btn-success">Edit</a>
                                     <a href="" class="btn btn-sm btn-danger">Delete</a>
                                 </td>
