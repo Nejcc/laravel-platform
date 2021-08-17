@@ -35,6 +35,11 @@ php artisan serve
 - P: secret
 ```
 
+## localization export
+```
+php artisan translatable:export en,si,de,it,es
+```
+
 ## Contribution
  
  if you want to contribute please use the DEVELOP branch and when you do PR push on DEVELOP.
