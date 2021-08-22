@@ -22,6 +22,44 @@ if (!function_exists('convert_to_percent')) {
 
 }
 
+if (!function_exists('slug')) {
+
+    /**
+     * @param int $number
+     * @param int $max_number
+     * @param int $decimal
+     * @return int|string
+     */
+    function slug(string $string, $delimeter = '-', $hash = false)
+    {
+        $string = trim($string);
+
+        $string = str_replace('.', '', strtolower($string));
+        $string = str_replace(' ', $delimeter, strtolower($string));
+        if ($hash) {
+            $string = bcrypt($string);
+        }
+
+        return $string;
+    }
+
+}
+
+if (!function_exists('vd')) {
+    function vd(...$string)
+    {
+        return var_dump($string);
+    }
+}
+
+if (!function_exists('vr')) {
+    function vr(...$string)
+    {
+        return print_r($string);
+    }
+}
+
+
 if (!function_exists('me')) {
     /**
      * @return \Illuminate\Contracts\Auth\Authenticatable|null
@@ -82,7 +120,7 @@ if (!function_exists('collection_sum')) {
      */
     function collection_sum($payload, $field, $formatting = false, $separator = 2)
     {
-        if ($formatting){
+        if ($formatting) {
             return number_format($payload->sum($field), $separator);
         }
 
