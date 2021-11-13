@@ -1,0 +1,13 @@
+{
+    "name": "UserPermissions",
+    "alias": "userpermissions",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\UserPermissions\\Providers\\UserPermissionsServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}
