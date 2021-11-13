@@ -13,6 +13,6 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/userpermissions', function (Request $request) {
-    return $request->user();
-});
+//Route::middleware('auth:api')->get('/userpermission', function (Request $request) {
+//    return $request->user();
+//});

@@ -18,6 +18,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <link rel="stylesheet" href="https://unpkg.com/vue-multiselect@2.1.0/dist/vue-multiselect.min.css">
 
     @livewireStyles
     <!-- Styles -->
@@ -78,6 +79,8 @@
                                href="{{ route('admin.user-permissions.index') }}">Permissions</a>
                             <a class="dropdown-item {{ (request()->is(['admin/sitemap'])) ? 'active' : '' }}"
                                href="{{ route('admin.sitemap.index') }}">Sitemap</a>
+                            <a class="dropdown-item {{ (request()->is(['admin/permissions'])) ? 'active' : '' }}"
+                               href="{{ route('admin.permissions') }}">Add permissions</a>
                             {{--                            <div class="dropdown-divider"></div>--}}
                             {{--                            <a class="dropdown-item" href="#">Something else here</a>--}}
                         </div>
