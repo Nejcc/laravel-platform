@@ -11,6 +11,9 @@
 |
 */
 
-Route::prefix('userpermissions')->group(function() {
-    Route::get('/', 'UserPermissionsController@index');
+Route::prefix('admin/user/permission')->name('admin.')->group(function() {
+    Route::get('/', [\Modules\UserPermission\Http\Controllers\UserPermissionController::class, 'index'])->name('permissions');
+    Route::post('/syncUserPermissions', [\Modules\UserPermission\Http\Controllers\UserPermissionController::class, 'syncUserPermissions']);
+
 });
+

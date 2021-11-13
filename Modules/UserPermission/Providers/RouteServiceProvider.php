@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\UserPermissions\Providers;
+namespace Modules\UserPermission\Providers;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
@@ -12,7 +12,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    protected $moduleNamespace = 'Modules\UserPermissions\Http\Controllers';
+    protected $moduleNamespace = 'Modules\UserPermission\Http\Controllers';
 
     /**
      * Called before routes are registered.
@@ -49,7 +49,7 @@ class RouteServiceProvider extends ServiceProvider
     {
         Route::middleware('web')
             ->namespace($this->moduleNamespace)
-            ->group(module_path('UserPermissions', '/Routes/web.php'));
+            ->group(module_path('UserPermission', '/Routes/web.php'));
     }
 
     /**
@@ -64,6 +64,6 @@ class RouteServiceProvider extends ServiceProvider
         Route::prefix('api')
             ->middleware('api')
             ->namespace($this->moduleNamespace)
-            ->group(module_path('UserPermissions', '/Routes/api.php'));
+            ->group(module_path('UserPermission', '/Routes/api.php'));
     }
 }

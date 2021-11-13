@@ -1,21 +1,21 @@
 <?php
 
-namespace Modules\UserPermissions\Providers;
+namespace Modules\UserPermission\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
 
-class UserPermissionsServiceProvider extends ServiceProvider
+class UserPermissionServiceProvider extends ServiceProvider
 {
     /**
      * @var string $moduleName
      */
-    protected $moduleName = 'UserPermissions';
+    protected $moduleName = 'UserPermission';
 
     /**
      * @var string $moduleNameLower
      */
-    protected $moduleNameLower = 'userpermissions';
+    protected $moduleNameLower = 'userpermission';
 
     /**
      * Boot the application events.
