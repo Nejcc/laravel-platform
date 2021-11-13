@@ -32,7 +32,7 @@ class Users extends Component
     {
         return view('livewire.admin.users', [
             'users' => User::search($this->search)
-//                ->select('id', 'name', 'email', 'created_at')
+                ->with('roles')
                 ->orderBy($this->orderByInput, $this->orderBy)
                 ->paginate($this->perPage)
         ]);
