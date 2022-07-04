@@ -24,3 +24,9 @@ Route::prefix('cms')->name('cms.')->group(function () {
 });
 
 Route::resource('/posts', \App\Http\Controllers\PostController::class)->only('index', 'show', 'store');
+
+
+//Permission
+Route::get('/permission',[\App\Http\Controllers\PermissionUserController::class, 'index'])->name('permission.index');
+Route::post('/permission',[\App\Http\Controllers\PermissionUserController::class, 'store'])->name('permission.store');
+
