@@ -14,23 +14,29 @@ class UserTableSeeder extends Seeder
     private $permissionsOnGroup = [
         'admin' => [
             'view'   => [
-                'users',
+                'user',
                 'sitemap',
-                'roles',
-                'permissions',
+                'role',
+                'permission',
             ],
             'create' => [
                 'permission',
+                'sitemap',
                 'user',
                 'role',
             ],
             'update' => [
                 'permission',
+                'sitemap',
+                'user',
                 'role',
             ],
             'delete' => [
                 'permission',
+                'sitemap',
+                'user',
                 'role',
+
             ],
         ],
         'user'  => [
@@ -53,7 +59,8 @@ class UserTableSeeder extends Seeder
                 foreach ($this->permissionsOnGroup[$role] as $key => $permission) {
                     if (!empty($permission[0])){
                         foreach ($permission as $p) {
-                            $newPermission = Permission::updateOrCreate(['name' => "{$key} {$p}"]);
+//                            dd($p);
+                            $newPermission = Permission::updateOrCreate(['name' => "{$key} {$p}", 'group_name' => $p ]);
                             $newRole->givePermissionTo($newPermission);
                         }
                     }
