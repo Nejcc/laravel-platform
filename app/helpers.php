@@ -66,7 +66,7 @@ if (!function_exists('me')) {
      */
     function me()
     {
-        return cache()->remember('me', 60, function () {
+        return cache()->remember('me_'.auth()->id(), 60, function () {
             return auth()->user();
         });
     }
